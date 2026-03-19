@@ -1,6 +1,8 @@
 import CTAButton from "../../components/CTAButton";
 import Link from "next/link";
 
+export const dynamic = "force-dynamic";
+
 export const metadata = {
   title: "Thank You",
   description: "Your submission was received",

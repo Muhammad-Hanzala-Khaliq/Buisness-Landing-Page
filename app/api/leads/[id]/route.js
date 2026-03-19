@@ -23,6 +23,9 @@ export async function DELETE(request, { params }) {
       return Response.json({ ok: false, error: "Invalid id" }, { status: 400 });
     }
     const db = await getDb();
+    if (!db) {
+      return Response.json({ ok: false, error: "Database not connected" }, { status: 500 });
+    }
     const result = await db.collection("leads").deleteOne({ _id: new ObjectId(id) });
     if (result.deletedCount === 0) {
       return Response.json({ ok: false, error: "Not found" }, { status: 404 });

@@ -1,5 +1,7 @@
 import AdminLoginForm from "../../../components/AdminLoginForm";
 
+export const dynamic = "force-dynamic";
+
 export const metadata = {
   title: "Admin Login",
   description: "Secure access to the clinic leads dashboard",

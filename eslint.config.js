@@ -3,6 +3,7 @@ import globals from "globals";
 import reactHooks from "eslint-plugin-react-hooks";
 
 export default [
+  js.configs.recommended,
   { ignores: ["dist", ".next"] },
   {
     files: ["**/*.{js,jsx}"],
@@ -17,6 +18,5 @@ export default [
     rules: {
       ...reactHooks.configs.recommended.rules,
     },
-    extends: [js.configs.recommended],
   },
 ];

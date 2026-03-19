@@ -1,3 +1,6 @@
+import "./globals.css";
+import Providers from "./providers";
+
 export const metadata = {
   title: "Lovable App",
   description: "Lovable Generated Project",
@@ -13,9 +16,6 @@ export const metadata = {
     images: ["https://lovable.dev/opengraph-image-p98pqg.png"],
   },
 };
-
-import "./globals.css";
-import Providers from "./providers";
 
 export default function RootLayout({ children }) {
   return (
