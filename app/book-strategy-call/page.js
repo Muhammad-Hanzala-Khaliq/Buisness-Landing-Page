@@ -1,7 +1,5 @@
 import LeadForm from "../../components/LeadForm";
 
-export const dynamic = "force-dynamic";
-
 export const metadata = {
   title: "Book Your Strategy Call",
   description: "Fill in your details to schedule a premium consultation.",

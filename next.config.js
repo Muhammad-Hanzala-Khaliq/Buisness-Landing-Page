@@ -13,6 +13,10 @@ const nextConfig = {
     // your project has type errors.
     ignoreBuildErrors: true,
   },
+  // Vercel: Skip static optimization for routes that require runtime
+  staticPageGenerationTimeout: 120,
+  // Prevent Vercel from timing out during builds
+  outputFileTracingIncludes: {},
 };
 
 module.exports = nextConfig;

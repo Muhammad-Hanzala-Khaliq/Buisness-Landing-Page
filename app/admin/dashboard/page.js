@@ -1,40 +1,41 @@
-import { getDb } from "../../../lib/mongo";
+"use client";
+
+import { useEffect, useState } from "react";
 import AdminLogoutButton from "../../../components/AdminLogoutButton";
 import AdminGuard from "../../../components/AdminGuard";
 import AdminLeadsTable from "../../../components/AdminLeadsTable";
-import { cookies } from "next/headers";
 
-export const dynamic = "force-dynamic";
+export default function AdminDashboardPage() {
+  const [leads, setLeads] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-export const metadata = {
-  title: "Admin Dashboard",
-  description: "View and manage clinic leads",
-};
+  useEffect(() => {
+    const fetchLeads = async () => {
+      try {
+        setLoading(true);
+        const res = await fetch("/api/admin/leads", { cache: "no-store" });
 
-export default async function AdminDashboardPage() {
-  // Ensure we are truly dynamic by reading cookies (even if we don't use them here, AdminGuard will)
-  const cookieStore = await cookies();
+        if (!res.ok) {
+          throw new Error("Failed to fetch leads");
+        }
 
-  let leads = [];
-  try {
-    const db = await getDb();
-    if (db) {
-      leads = await db
-        .collection("leads")
-        .find({})
-        .sort({ createdAt: -1 })
-        .toArray();
-    }
-  } catch (e) {
-    console.error("DB Error:", e);
-  }
+        const data = await res.json();
+        if (data.ok) {
+          setLeads(data.leads || []);
+        } else {
+          throw new Error(data.error || "Failed to load leads");
+        }
+      } catch (err) {
+        console.error("Error loading leads:", err);
+        setError(err.message || "Failed to load leads");
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  const sanitized = leads.map((l) => {
-    const id = l._id ? l._id.toString() : "";
-    const { _id, ...rest } = l;
-    return { id, ...rest };
-  });
-  const total = sanitized.length;
+    fetchLeads();
+  }, []);
 
   return (
     <AdminGuard>
@@ -46,13 +47,25 @@ export default async function AdminDashboardPage() {
                 Leads Dashboard
               </h1>
               <p className="text-sm text-muted-foreground mt-1">
-                Total leads: {total}
+                Total leads: {loading ? "..." : leads.length}
               </p>
             </div>
             <AdminLogoutButton />
           </div>
 
-          <AdminLeadsTable initialLeads={sanitized} />
+          {error && (
+            <div className="mb-6 p-4 rounded-lg bg-destructive/10 border border-destructive/50 text-destructive">
+              {error}
+            </div>
+          )}
+
+          {loading ? (
+            <div className="flex items-center justify-center p-12">
+              <div className="text-muted-foreground">Loading leads...</div>
+            </div>
+          ) : (
+            <AdminLeadsTable initialLeads={leads} />
+          )}
         </div>
       </main>
     </AdminGuard>
