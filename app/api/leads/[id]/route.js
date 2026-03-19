@@ -1,5 +1,8 @@
 import { getDb } from "../../../../lib/mongo";
 import { ObjectId } from "mongodb";
+
+export const dynamic = "force-dynamic";
+
 // Avoid cookies() due to runtime incompatibility; parse from request headers
 
 export async function DELETE(request, { params }) {

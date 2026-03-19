@@ -11,8 +11,13 @@ export const metadata = {
 };
 
 export default async function AdminDashboardPage() {
-  const db = await getDb();
-  const leads = await db.collection("leads").find({}).sort({ createdAt: -1 }).toArray();
+  let leads = [];
+  try {
+    const db = await getDb();
+    leads = await db.collection("leads").find({}).sort({ createdAt: -1 }).toArray();
+  } catch (e) {
+    console.error("DB Error:", e);
+  }
 
   const sanitized = leads.map((l) => {
     const id = l._id ? l._id.toString() : "";
