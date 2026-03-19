@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 4%;
+    --foreground: 0 0% 100%;
+
+    --card: 0 0% 6.7%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 0 0% 6.7%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 160 84% 39%;
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 0 0% 100%;
+    --secondary-foreground: 0 0% 0%;
+
+    --muted: 240 4% 16%;
+    --muted-foreground: 240 5% 65%;
+
+    --accent: 160 84% 39%;
+    --accent-foreground: 0 0% 0%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 100% / 0.08;
+    --input: 0 0% 100% / 0.08;
+    --ring: 160 84% 39%;
+
+    --radius: 1.5rem;
+
+    --surface-elevated: 0 0% 6.7%;
+    --surface-subtle: 0 0% 5%;
+    --text-secondary: 240 5% 65%;
+    --text-tertiary: 240 4% 46%;
+    --glow-primary: 160 84% 39%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-muted-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-foreground tracking-tight;
+  }
+
+  ::selection {
+    background: hsl(160 84% 39% / 0.3);
+  }
+}
+
+@layer utilities {
+  .glow-primary {
+    box-shadow: 0 0 20px hsl(160 84% 39% / 0.2);
+  }
+
+  .glow-blob {
+    background: hsl(160 84% 39% / 0.15);
+    filter: blur(120px);
+  }
+
+  .border-subtle {
+    border-color: hsl(0 0% 100% / 0.08);
+  }
+
+  .border-subtle-hover {
+    border-color: hsl(0 0% 100% / 0.2);
+  }
+
+  .surface-card {
+    background: hsl(0 0% 6.7%);
+    border: 1px solid hsl(0 0% 100% / 0.08);
+  }
+
+  .surface-card-hover:hover {
+    border-color: hsl(0 0% 100% / 0.15);
+  }
+}
