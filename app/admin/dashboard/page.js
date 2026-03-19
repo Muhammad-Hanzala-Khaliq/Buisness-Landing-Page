@@ -3,6 +3,8 @@ import AdminLogoutButton from "../../../components/AdminLogoutButton";
 import AdminGuard from "../../../components/AdminGuard";
 import AdminLeadsTable from "../../../components/AdminLeadsTable";
 
+export const dynamic = "force-dynamic";
+
 export const metadata = {
   title: "Admin Dashboard",
   description: "View and manage clinic leads",
