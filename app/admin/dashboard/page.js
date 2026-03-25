@@ -14,10 +14,15 @@ export default function AdminDashboardPage() {
     const fetchLeads = async () => {
       try {
         setLoading(true);
-        const res = await fetch("/api/admin/leads", { cache: "no-store" });
+        const res = await fetch("/api/admin/leads", {
+          method: "GET",
+          cache: "no-store",
+          credentials: "include",
+        });
 
         if (!res.ok) {
-          throw new Error("Failed to fetch leads");
+          const body = await res.json().catch(() => null);
+          throw new Error(body?.error || `Failed to fetch leads (${res.status})`);
         }
 
         const data = await res.json();
