@@ -7,10 +7,7 @@ export async function POST(request) {
     const body = await request.json();
     const db = await getDb();
     if (!db) {
-      return Response.json(
-        { ok: false, error: "Database not connected" },
-        { status: 500 },
-      );
+      return Response.json({ ok: false, error: "Database not connected" }, { status: 500 });
     }
     await db.collection("leads").insertOne(body);
     return Response.json({ ok: true }, { status: 200 });

@@ -1,3 +1,4 @@
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // Experimental Turbopack is sometimes unstable on Vercel builds
