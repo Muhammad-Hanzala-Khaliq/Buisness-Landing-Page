@@ -18,6 +18,10 @@ import {
   Rocket,
   TrendingUp,
   XCircle,
+  Linkedin,
+  Instagram,
+  Facebook,
+  Twitter,
 } from "lucide-react";
 import CTAButton from "../components/CTAButton";
 import Section, { fadeUpItem } from "../components/Section";
@@ -33,26 +37,15 @@ const Hero = () => {
 
     <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 lg:gap-20 items-center relative z-10">
       <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease }}>
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, delay: 0.2, ease }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-8"
-        >
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
-          </span>
-          Accepting 2 new clinics for Q3
-        </motion.div>
+      
 
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1, ease }}
-          className="text-4xl sm:text-5xl lg:text-7xl font-extrabold text-foreground leading-[1.08] tracking-tight mb-8"
+          className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-foreground leading-[1.08] tracking-tight mb-8"
         >
-          Aesthetic Clinics: Stop Losing Patients to Competitors
+          Aesthetic Clinics: Stop Losing Patients to Competitors Who Run Better Ads
         </motion.h1>
 
         <motion.p
@@ -61,8 +54,7 @@ const Hero = () => {
           transition={{ duration: 0.7, delay: 0.25, ease }}
           className="text-lg sm:text-xl text-muted-foreground mb-10 max-w-lg leading-relaxed"
         >
-          We run high-converting Meta Ads that bring aesthetic clinics real booked consultations — not just clicks and
-          empty enquiries.
+          We do both High converting Meta Ads + websites designed to turn visitors into booked consultations.
         </motion.p>
 
         <motion.div
@@ -74,7 +66,7 @@ const Hero = () => {
           <Link href="/book-strategy-call">
             <CTAButton>Book Your Strategy Call</CTAButton>
           </Link>
-          <p className="text-sm text-muted-foreground/50 ml-1">Limited slots available for Q3 clinics</p>
+          {/* <p className="text-sm text-muted-foreground/50 ml-1">Limited slots available for Q3 clinics</p> */}
         </motion.div>
       </motion.div>
 
@@ -85,46 +77,72 @@ const Hero = () => {
         className="relative"
       >
         <div className="absolute -inset-8 glow-blob rounded-full opacity-60" />
-        <div className="relative surface-card rounded-[2.5rem] p-8 lg:p-10 shadow-2xl">
-          <div className="space-y-6">
-            <div className="flex justify-between items-end">
-              <div>
-                <p className="text-muted-foreground/50 text-xs uppercase tracking-widest font-semibold mb-1">
-                  New Bookings
-                </p>
-                <p className="text-5xl font-bold text-foreground">+42</p>
-              </div>
-              <div className="h-14 w-28 bg-primary/10 rounded-xl flex items-end p-2 gap-1">
-                {[40, 70, 45, 90, 65].map((h, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ height: 0 }}
-                    animate={{ height: `${h}%` }}
-                    transition={{ duration: 0.8, delay: 0.6 + i * 0.1, ease }}
-                    className="bg-primary w-full rounded-t-sm"
-                  />
-                ))}
-              </div>
-            </div>
-            <div className="space-y-3">
-              {[0, 1, 2].map((i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: 0.8 + i * 0.12, ease }}
-                  className="flex items-center gap-4 p-4 rounded-2xl bg-muted/20 border border-muted/50"
-                >
-                  <div className="w-10 h-10 rounded-full bg-muted/60" />
-                  <div className="flex-1">
-                    <div className="h-2 w-24 bg-muted/60 rounded mb-2" />
-                    <div className="h-2 w-16 bg-muted/30 rounded" />
-                  </div>
-                  <div className="text-primary text-sm font-bold">Booked</div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
+        <div className="relative space-y-4 lg:space-y-5">
+          {/* Pill 1 — INNOVATION + Ali image on right */}
+          <Link href="/profile/raza" className="block w-full">
+            <motion.div
+              initial={{ opacity: 0, x: 60 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7, delay: 0.5, ease }}
+              whileHover={{ scale: 1.02 }}
+              className="flex items-center justify-between py-4 px-6 lg:py-5 lg:px-8 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-sm shadow-2xl cursor-pointer"
+            >
+              <span className="text-2xl lg:text-4xl font-extrabold uppercase tracking-wide text-foreground">
+                Innovation
+              </span>
+              <motion.img
+                src="/Ali.png"
+                alt="Ali"
+                animate={{ y: [0, -6, 0] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                className="w-12 h-12 lg:w-14 lg:h-14 rounded-full object-cover border-2 border-white/20 shadow-lg"
+              />
+            </motion.div>
+          </Link>
+
+          {/* Pill 2 — Hanzala image on left + CREATIVITY */}
+          <Link href="/profile/hanzala" className="block w-full">
+            <motion.div
+              initial={{ opacity: 0, x: -60 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7, delay: 0.7, ease }}
+              whileHover={{ scale: 1.02 }}
+              className="flex items-center justify-between py-4 px-6 lg:py-5 lg:px-8 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-sm shadow-2xl cursor-pointer"
+            >
+              <motion.img
+                src="/Hanzala.png"
+                alt="Hanzala"
+                animate={{ y: [0, -6, 0] }}
+                transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                className="w-12 h-12 mt01 lg:w-16 lg:h-16 rounded-full object-contain border-2 border-white/20 shadow-lg"
+              />
+              <span className="text-2xl lg:text-4xl font-extrabold uppercase tracking-wide text-foreground">
+                Creativity
+              </span>
+            </motion.div>
+          </Link>
+
+          {/* Pill 3 — EFFECT + arrow button */}
+          <Link href="/testimonials" className="block w-full">
+            <motion.div
+              initial={{ opacity: 0, x: 60 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7, delay: 0.9, ease }}
+              whileHover={{ scale: 1.02 }}
+              className="flex items-center justify-between py-4 px-6 lg:py-5 lg:px-8 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-sm shadow-2xl cursor-pointer"
+            >
+              <span className="text-2xl lg:text-4xl font-extrabold uppercase tracking-wide text-foreground">
+                Testimonials
+              </span>
+              <motion.div
+                animate={{ x: [0, 6, 0] }}
+                transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                className="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-primary flex items-center justify-center shadow-lg"
+              >
+                <ArrowRight className="w-5 h-5 lg:w-6 lg:h-6 text-primary-foreground" />
+              </motion.div>
+            </motion.div>
+          </Link>
         </div>
       </motion.div>
     </div>
@@ -140,7 +158,7 @@ const Problem = () => (
         Your Chairs Are Still Empty.
       </h2>
       <p className="text-muted-foreground text-lg lg:text-xl max-w-2xl mx-auto leading-relaxed">
-        Most clinics don't have an ads problem. They have a targeting + strategy problem.
+        Most clinics don't have an ads problem. They have a targeting + strategy problem.And every day without the right system? Your competitor down the road is booking those patients instead.
       </p>
     </motion.div>
     <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
@@ -165,22 +183,27 @@ const Problem = () => (
 
 const Solution = () => (
   <Section>
-    <motion.h2 variants={fadeUpItem} className="text-3xl lg:text-5xl font-bold text-foreground mb-20 text-center">
+   <div className="mb-20">
+     <motion.h2 variants={fadeUpItem} className="text-3xl lg:text-5xl font-bold text-foreground text-center">
       We Fix That. End to End.
     </motion.h2>
+    <p className="text-muted-foreground text-lg lg:text-xl max-w-2xl mx-auto leading-relaxed mt-2">
+       One focused team. Two specialisms. Built for Aesthetic Clinics  only.
+      </p>
+   </div>
     <div className="grid md:grid-cols-2 gap-8 lg:gap-10">
       {[
         {
           name: "Raza Sandhu",
-          role: "Meta Ads & Performance Marketing",
-          items: ["Laser-targeted audiences", "Ad creatives strategy", "Cost-per-lead tracking"],
-          quote: "You work directly with the specialist.",
+          role: "Performance Marketing | Meta Ads | Lead Generation Strategist For Aesthetic Clinics.",
+          items: [" Meta Ads setup, Management & Optimisation.", "Laser Targeted Audiences (Age, Location, Income, Interest)", "Ad Creatives Strategy Built for Aesthetic Clinic Buyers","Cost Per Lead Tracking & Continuous Optimisation"],
+          quote: "Unlike Agencies,You work directly with us One Specialist, One Focus, One Goal, Booked Consultations",
         },
         {
           name: "Hanzala",
-          role: "Web & Funnel Development",
-          items: ["High-converting landing pages", "Booking funnel setup", "Fast mobile-optimised sites"],
-          quote: "Built to convert, not just look good.",
+          role: "Web & Funnel Development | Conversion Focused Systems for  Aesthetic Clinics.",
+          items: ["High converting Landing pages Designed for Aesthetic Clinics Growth.", "Booking Funnels that turn Leads into actual Appointments.", "Fast, Mobile Optimised Websites for better user experience.","Conversion Driven Structure (not just design, but results)"],
+          quote: "Luxury Design that Drives Real Patient Bookings.",
         },
       ].map((person) => (
         <motion.div
@@ -199,7 +222,7 @@ const Solution = () => (
               </li>
             ))}
           </ul>
-          <div className="pt-6 border-t border-muted/50 text-sm text-muted-foreground/50 italic">"{person.quote}"</div>
+          <div className="pt-6 border-t border-muted/50 text-sm text-muted-foreground/50 italic">{person.quote}</div>
         </motion.div>
       ))}
     </div>
@@ -254,144 +277,118 @@ const HowItWorks = () => (
 
 const Services = () => (
   <Section>
-    <motion.h2 variants={fadeUpItem} className="text-3xl lg:text-5xl font-bold text-foreground mb-20 text-center">
+    <div className="mb-10">
+      <motion.h2 variants={fadeUpItem} className="text-3xl lg:text-5xl font-bold text-foreground text-center">
       Our Services
     </motion.h2>
+    <p className="text-muted-foreground text-lg lg:text-xl max-w-2xl mx-auto leading-relaxed mt-2">
+       One focused team. Two specialisms. Built for Aesthetic Clinics  only.
+     </p>
+    </div>
     <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
       <FeatureCard
         icon={TrendingUp}
-        title="Performance Marketing (Meta Ads)"
-        description="Data-driven Meta Ads campaigns laser-focused on booked consultations for aesthetic clinics."
+        title="Performance Marketing | Paid Social | Meta Ads | Lead Generation."
+        description="Full campaign setup, management, and optimisation on Facebook & Instagram. Laser targeted audiences, ad creative strategy, and continuous performance tracking all engineered for one outcome: Qualified Leads Land In Your Inbox. Ready To Book."
       />
       <FeatureCard
-        icon={Laptop}
-        title="Landing Page / Website"
-        description="High-converting, mobile-first landing pages and websites built to turn clicks into confirmed appointments."
-      />
+  icon={Laptop}
+  title="Landing Page / Website + Full Booking System"
+  description="We don’t just build landing pages we create complete conversion systems. From high-converting, mobile-first websites to full booking funnels and backend setup, everything is designed to turn clicks into real confirmed appointments."
+/>
+
     </div>
   </Section>
 );
 
 const WhyUs = () => (
   <Section className="bg-surface-subtle">
-    <motion.div variants={fadeUpItem} className="text-center mb-20">
-      <h2 className="text-3xl lg:text-5xl font-bold text-foreground mb-6">
-        Not An Agency. Not A Generalist.
-        <br />
-        Just Results.
+    <motion.div variants={fadeUpItem} className="text-center mb-16 lg:mb-20">
+      <h2 className="text-3xl lg:text-5xl font-bold text-foreground mb-4">
+        WHY US OVER A MARKETING AGENCY?
       </h2>
-      <p className="text-muted-foreground text-lg lg:text-xl max-w-xl mx-auto leading-relaxed">
-        Everything we do is built around one niche — aesthetic clinics.
+      <p className="text-lg lg:text-xl mx-auto leading-relaxed text-primary font-medium mb-4">
+        One Niche. One Focus. Better Results.
+      </p>
+      <p className="text-muted-foreground text-lg max-w-3xl mx-auto leading-relaxed">
+        Most agencies work with everyone—restaurants, gyms, dentists, e-commerce, you name it. We work with aesthetic clinics only. That's our edge.
       </p>
     </motion.div>
-    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
-      {[
-        { icon: Target, title: "Aesthetic Clinics Only" },
-        { icon: Users, title: "Work Directly With Specialist" },
-        { icon: Zap, title: "Outcome-Focused" },
-        { icon: Rocket, title: "Fast Setup" },
-        { icon: Shield, title: "No Retainer Traps" },
-        { icon: TrendingUp, title: "Built to Scale" },
-      ].map((f) => (
-        <motion.div
-          key={f.title}
-          variants={fadeUpItem}
-          whileHover={{ y: -6, borderColor: "rgba(255,255,255,0.18)", boxShadow: "0 16px 32px -8px rgba(0,0,0,0.4)" }}
-          transition={{ duration: 0.3, ease }}
-          className="flex items-center gap-4 p-6 lg:p-7 rounded-2xl surface-card"
-        >
-          <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-            <f.icon className="w-5 h-5 text-primary" />
-          </div>
-          <span className="font-semibold text-foreground">{f.title}</span>
-        </motion.div>
-      ))}
-    </div>
-  </Section>
-);
 
-const Results = () => (
-  <Section className="bg-primary/[0.04]">
-    <motion.h2 variants={fadeUpItem} className="text-3xl lg:text-5xl font-bold text-foreground mb-20 text-center">
-      Real Results. Real Clinics.
-    </motion.h2>
-    <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
-      {[
-        { clinic: "Botox & Filler Clinic", cpl: "£6.80", bookings: "42", roas: "6.2x" },
-        { clinic: "Laser Skin Center", cpl: "£4.20", bookings: "68", roas: "8.1x" },
-        { clinic: "Aesthetic Wellness", cpl: "£9.10", bookings: "31", roas: "5.4x" },
-      ].map((res, i) => (
-        <motion.div
-          key={i}
-          variants={fadeUpItem}
-          whileHover={{ y: -8, boxShadow: "0 20px 40px -12px rgba(16,185,129,0.15)" }}
-          className="p-8 lg:p-10 rounded-3xl surface-card"
-          style={{ borderColor: "rgba(16,185,129,0.15)" }}
-        >
-          <p className="text-foreground font-bold mb-8 text-lg">{res.clinic}</p>
-          <div className="grid grid-cols-2 gap-5">
-            <div>
-              <p className="text-muted-foreground/50 text-xs uppercase tracking-widest mb-2">Cost Per Lead</p>
-              <p className="text-3xl font-bold text-primary">{res.cpl}</p>
-            </div>
-            <div>
-              <p className="text-muted-foreground/50 text-xs uppercase tracking-widest mb-2">Bookings</p>
-              <p className="text-3xl font-bold text-foreground">{res.bookings}</p>
-            </div>
-            <div className="col-span-2 pt-5 border-t border-muted/50">
-              <p className="text-muted-foreground/50 text-xs uppercase tracking-widest mb-2">ROAS</p>
-              <p className="text-3xl font-bold text-foreground">{res.roas}</p>
-            </div>
-          </div>
-        </motion.div>
-      ))}
-    </div>
-  </Section>
-);
+    <div className="max-w-5xl mx-auto">
+      <div className="surface-card rounded-[2.5rem] p-6 sm:p-8 lg:p-10 shadow-2xl border border-muted/20">
+        {/* Table Header */}
+        <div className="hidden sm:grid grid-cols-2 gap-8 pb-6 border-b border-muted/20 mb-6">
+          <div className="text-xl font-bold text-muted-foreground/80 pl-2">Typical Agency</div>
+          <div className="text-xl font-bold text-primary pl-2">Our Agency (Us)</div>
+        </div>
 
-const WhoIsThisFor = () => (
-  <Section>
-    <div className="max-w-4xl mx-auto">
-      <motion.h2 variants={fadeUpItem} className="text-3xl lg:text-5xl font-bold text-foreground mb-16 text-center">
-        Is This For You?
-      </motion.h2>
-      <div className="grid md:grid-cols-2 gap-8">
-        <motion.div variants={fadeUpItem} className="p-8 lg:p-10 rounded-3xl surface-card">
-          <h3 className="text-xl font-bold text-foreground mb-8 flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
-              <CheckCircle2 className="w-5 h-5 text-primary" />
-            </div>
-            This IS for you
-          </h3>
-          <ul className="space-y-5">
-            {["Clinic owners (Botox, filler, laser)", "Want predictable, qualified leads", "Tired of no-shows and ghosting", "Ready to invest in growth"].map((item) => (
-              <li key={item} className="flex items-start gap-3 text-muted-foreground">
-                <ArrowRight className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
-                {item}
-              </li>
-            ))}
-          </ul>
-        </motion.div>
-        <motion.div variants={fadeUpItem} className="p-8 lg:p-10 rounded-3xl surface-card" style={{ borderColor: "rgba(239,68,68,0.15)" }}>
-          <h3 className="text-xl font-bold text-foreground mb-8 flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-destructive/10 flex items-center justify-center">
-              <XCircle className="w-5 h-5 text-destructive" />
-            </div>
-            This is NOT for you
-          </h3>
-          <ul className="space-y-5">
-            {["You want cheap or overnight results", "Not willing to invest in quality leads", "Looking for a magic bullet with zero effort"].map((item) => (
-              <li key={item} className="flex items-start gap-3 text-muted-foreground">
-                <ArrowRight className="w-4 h-4 text-destructive mt-1 flex-shrink-0" />
-                {item}
-              </li>
-            ))}
-          </ul>
-        </motion.div>
+        {/* Table Body */}
+        <div className="space-y-6 sm:space-y-0 sm:divide-y sm:divide-muted/20">
+          {[
+            {
+              typical: "Works with every industry",
+              us: "Focused only on aesthetic clinics",
+            },
+            {
+              typical: "Separate teams, disconnected strategy",
+              us: "One unified system (Ads + Website + Funnel)",
+            },
+            {
+              typical: "Generic ad campaigns",
+              us: "Strategies built for Botox, fillers & skin clinics",
+            },
+            {
+              typical: "Focus on traffic & impressions",
+              us: "Focus on booked consultations",
+            },
+            {
+              typical: "Sends leads to weak websites",
+              us: "We build high-converting websites that close leads",
+            },
+            {
+              typical: "No control over backend conversion",
+              us: "Full funnel control (click → booking)",
+            },
+            {
+              typical: "Junior account managers",
+              us: "Work directly with specialists",
+            },
+            {
+              typical: "Long onboarding & delays",
+              us: "Fast setup & direct communication",
+            },
+            {
+              typical: "You’re one of many clients",
+              us: "You get priority & focused attention",
+            },
+          ].map((row, i) => (
+            <motion.div
+              key={i}
+              variants={fadeUpItem}
+              className="grid sm:grid-cols-2 gap-4 sm:gap-8 sm:py-5 items-center"
+            >
+              {/* Mobile Layout */}
+              <div className="sm:hidden text-sm font-bold text-muted-foreground/80 mb-[-8px]">Typical Agency</div>
+              <div className="flex items-start gap-3 opacity-70 bg-muted/10 sm:bg-transparent p-4 sm:p-0 rounded-2xl sm:rounded-none">
+                <XCircle className="w-5 h-5 text-red-400 mt-0.5 flex-shrink-0" />
+                <span className="text-sm sm:text-base text-muted-foreground font-medium">{row.typical}</span>
+              </div>
+
+              <div className="sm:hidden text-sm font-bold text-primary mt-2 mb-[-8px]">Our Agency</div>
+              <div className="flex items-start gap-3 bg-primary/5 sm:bg-transparent p-4 sm:p-0 rounded-2xl sm:rounded-none border border-primary/10 sm:border-none">
+                <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                <span className="text-sm sm:text-base font-bold text-foreground">{row.us}</span>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </div>
   </Section>
 );
+
+
 
 const FinalCTA = () => {
   const ref = useRef(null);
@@ -424,29 +421,193 @@ const FinalCTA = () => {
   );
 };
 
-const Footer = () => (
-  <footer className="py-16 px-6 border-t border-muted/50">
-    <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-      <div className="flex gap-14">
-        <div>
-          <p className="text-foreground font-bold mb-1">Raza Sandhu</p>
-          <p className="text-sm text-muted-foreground/60">Meta Specialist</p>
-        </div>
-        <div>
-          <p className="text-foreground font-bold mb-1">Hanzala</p>
-          <p className="text-sm text-muted-foreground/60">Funnel Specialist</p>
-        </div>
+const Footer = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-80px" });
+
+  const containerVariants = {
+    hidden: {},
+    visible: { transition: { staggerChildren: 0.12 } },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 24 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.75, ease: [0.16, 1, 0.3, 1] },
+    },
+  };
+
+  const socialLinks = [
+    { icon: Linkedin, href: "#", label: "LinkedIn" },
+    { icon: Instagram, href: "#", label: "Instagram" },
+    { icon: Facebook, href: "#", label: "Facebook" },
+    { icon: Twitter, href: "#", label: "X" },
+  ];
+
+  const navLinks = ["Home", "Services", "Portfolio", "Contact"];
+
+  return (
+    <footer ref={ref} className="relative bg-background overflow-hidden border-t border-muted/20">
+      {/* Animated Fluid Wave Background */}
+      <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
+        <style>{`
+          @keyframes waveFlow1 {
+            0%   { transform: translateX(0%) translateY(0px); }
+            50%  { transform: translateX(-25%) translateY(8px); }
+            100% { transform: translateX(0%) translateY(0px); }
+          }
+          @keyframes waveFlow2 {
+            0%   { transform: translateX(0%) translateY(0px); }
+            50%  { transform: translateX(-20%) translateY(-10px); }
+            100% { transform: translateX(0%) translateY(0px); }
+          }
+          @keyframes waveFlow3 {
+            0%   { transform: translateX(0%) translateY(0px); }
+            50%  { transform: translateX(-30%) translateY(6px); }
+            100% { transform: translateX(0%) translateY(0px); }
+          }
+          @keyframes waveFlow4 {
+            0%   { transform: translateX(0%) translateY(0px); }
+            50%  { transform: translateX(-15%) translateY(-5px); }
+            100% { transform: translateX(0%) translateY(0px); }
+          }
+        `}</style>
+
+        {/* Wave Layer 1 — 70% height, slow */}
+        <svg
+          className="absolute bottom-0 left-0 w-[200%] h-[70%]"
+          viewBox="0 0 2880 400"
+          preserveAspectRatio="none"
+          style={{ animation: "waveFlow1 25s ease-in-out infinite", filter: "blur(8px)", opacity: 0.3 }}
+        >
+          <defs>
+            <linearGradient id="wg1" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="hsl(160 84% 39%)" />
+              <stop offset="50%" stopColor="hsl(160 70% 28%)" />
+              <stop offset="100%" stopColor="hsl(160 84% 39%)" />
+            </linearGradient>
+          </defs>
+          <path d="M0,120 C320,240 640,60 960,180 C1280,300 1600,80 1920,200 C2240,320 2560,100 2880,180 L2880,400 L0,400 Z" fill="url(#wg1)" />
+        </svg>
+
+        {/* Wave Layer 2 — 40% height, medium speed */}
+        <svg
+          className="absolute bottom-0 left-0 w-[200%] h-[40%]"
+          viewBox="0 0 2880 200"
+          preserveAspectRatio="none"
+          style={{ animation: "waveFlow2 18s ease-in-out infinite", filter: "blur(4px)", opacity: 0.45 }}
+        >
+          <defs>
+            <linearGradient id="wg2" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="hsl(160 84% 39%)" />
+              <stop offset="60%" stopColor="hsl(165 80% 30%)" />
+              <stop offset="100%" stopColor="hsl(160 84% 39%)" />
+            </linearGradient>
+          </defs>
+          <path d="M0,80 C360,30 720,150 1080,70 C1440,10 1800,130 2160,60 C2520,20 2700,120 2880,80 L2880,200 L0,200 Z" fill="url(#wg2)" />
+        </svg>
+
+        {/* Wave Layer 3 — 55% height, fast */}
+        <svg
+          className="absolute bottom-0 left-0 w-[200%] h-[55%]"
+          viewBox="0 0 2880 300"
+          preserveAspectRatio="none"
+          style={{ animation: "waveFlow3 15s ease-in-out infinite", filter: "blur(2px)", opacity: 0.55 }}
+        >
+          <defs>
+            <linearGradient id="wg3" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="hsl(160 90% 35%)" />
+              <stop offset="50%" stopColor="hsl(155 84% 25%)" />
+              <stop offset="100%" stopColor="hsl(160 90% 35%)" />
+            </linearGradient>
+          </defs>
+          <path d="M0,100 C480,220 960,40 1440,160 C1920,260 2400,60 2880,180 L2880,300 L0,300 Z" fill="url(#wg3)" />
+        </svg>
+
+        {/* Wave Layer 4 — 30% height, slow */}
+        <svg
+          className="absolute bottom-0 left-0 w-[200%] h-[30%]"
+          viewBox="0 0 2880 160"
+          preserveAspectRatio="none"
+          style={{ animation: "waveFlow4 22s ease-in-out infinite", filter: "blur(16px)", opacity: 0.25 }}
+        >
+          <defs>
+            <linearGradient id="wg4" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="hsl(160 84% 50%)" />
+              <stop offset="50%" stopColor="hsl(170 80% 40%)" />
+              <stop offset="100%" stopColor="hsl(160 84% 50%)" />
+            </linearGradient>
+          </defs>
+          <path d="M0,60 C400,120 800,20 1200,80 C1600,140 2000,30 2400,90 C2640,120 2760,50 2880,70 L2880,160 L0,160 Z" fill="url(#wg4)" />
+        </svg>
+
+        {/* Dark overlay to ensure text readability */}
+        <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-background/85 to-background" />
       </div>
-      <div className="flex gap-8 text-sm">
-        {["Email", "WhatsApp", "Calendly"].map((link) => (
-          <a key={link} href="#" className="text-muted-foreground/60 hover:text-foreground transition-colors duration-300">
-            {link}
-          </a>
-        ))}
-      </div>
-    </div>
-  </footer>
-);
+
+      {/* Footer Content */}
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+        className="relative z-10 max-w-5xl mx-auto px-6 pt-28 pb-16 text-center"
+      >
+        {/* Tagline */}
+        <motion.p
+          variants={itemVariants}
+          className="text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase text-primary mb-6"
+        >
+          Next Wave Agency
+        </motion.p>
+
+        {/* Email */}
+        <motion.div variants={itemVariants} className="mb-12">
+          <motion.a
+            href="mailto:hello@hanzalamarketing.com"
+            whileHover={{ y: -4 }}
+            transition={{ type: "spring", stiffness: 300, damping: 18 }}
+            className="text-2xl sm:text-4xl lg:text-[2.25rem] font-extrabold text-foreground hover:text-primary transition-colors duration-300 inline-block leading-tight"
+          >
+           nextwaveagency@gmail.com
+          </motion.a>
+        </motion.div>
+
+    
+
+        {/* Social Icons */}
+        <motion.div
+          variants={itemVariants}
+          className="flex justify-center gap-7 mb-16"
+        >
+          {socialLinks.map((social) => (
+            <motion.a
+              key={social.label}
+              href={social.href}
+              aria-label={social.label}
+              whileHover={{ y: -5, scale: 1.15 }}
+              transition={{ type: "spring", stiffness: 420, damping: 12 }}
+              className="w-10 h-10 rounded-xl bg-muted/20 border border-muted/30 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/30 hover:bg-primary/10 transition-colors duration-300"
+            >
+              <social.icon className="w-4 h-4" />
+            </motion.a>
+          ))}
+        </motion.div>
+
+        {/* Divider + Copyright */}
+        <motion.div
+          variants={itemVariants}
+          className="pt-8 border-t border-muted/10"
+        >
+          <p className="text-xs text-muted-foreground/40 tracking-wide">
+            © 2026 Next Wave Agency. All rights reserved.
+          </p>
+        </motion.div>
+      </motion.div>
+    </footer>
+  );
+};
 
 export default function Page() {
   return (
@@ -457,8 +618,6 @@ export default function Page() {
       <HowItWorks />
       <Services />
       <WhyUs />
-      <Results />
-      <WhoIsThisFor />
       <FinalCTA />
       <Footer />
     </main>

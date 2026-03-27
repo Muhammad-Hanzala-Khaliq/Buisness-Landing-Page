@@ -48,43 +48,73 @@ export default function AdminLeadsTable({ initialLeads }) {
     <div className="rounded-2xl border border-muted/50 bg-surface-elevated shadow-2xl overflow-hidden">
       <div className="max-h-[70vh] overflow-y-auto overflow-x-auto">
         <table className="min-w-full text-left">
-          <thead className="bg-muted/20 text-muted-foreground">
+          <thead className="bg-muted/20 text-muted-foreground whitespace-nowrap">
             <tr>
               <th className="px-4 py-3">Name</th>
               <th className="px-4 py-3">Email</th>
-              <th className="px-4 py-3">Phone</th>
+              <th className="px-4 py-3">WhatsApp / Phone</th>
               <th className="px-4 py-3">Clinic</th>
-              <th className="px-4 py-3">City</th>
-              <th className="px-4 py-3">Service</th>
-              <th className="px-4 py-3">Budget</th>
+              <th className="px-4 py-3">Location</th>
+              <th className="px-4 py-3">Services</th>
+              <th className="px-4 py-3">Qualification</th>
+              <th className="px-4 py-3">Marketing Context</th>
               <th className="px-4 py-3">Notes</th>
               <th className="px-4 py-3">Submitted</th>
-              <th className="px-4 py-3">Actions</th>
+              <th className="px-4 py-3 text-center">Actions</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-muted/40">
             {leads.map((l, idx) => {
               const id = l.id || String(idx);
+              const services = Array.isArray(l.selectedServices) ? l.selectedServices.join(", ") : l.service || "-";
               return (
                 <tr key={id} className="hover:bg-muted/10">
-                  <td className="px-4 py-3 break-words whitespace-normal">{l.name || "-"}</td>
-                  <td className="px-4 py-3 break-words whitespace-normal">{l.email || "-"}</td>
-                  <td className="px-4 py-3">{l.phone || "-"}</td>
-                  <td className="px-4 py-3 break-words whitespace-normal">{l.clinicName || "-"}</td>
-                  <td className="px-4 py-3">{l.city || "-"}</td>
-                  <td className="px-4 py-3 break-words whitespace-normal">{l.service || "-"}</td>
-                  <td className="px-4 py-3">{l.budget || "-"}</td>
-                  <td className="px-4 py-3 break-words whitespace-normal">{l.notes || "-"}</td>
-                  <td className="px-4 py-3">
-                    {l.createdAt ? new Date(l.createdAt).toLocaleString("en-GB", { hour12: false }) : "-"}
+                  <td className="px-4 py-3 font-medium text-foreground whitespace-nowrap">{l.name || "-"}</td>
+                  <td className="px-4 py-3 text-xs opacity-80">{l.email || "-"}</td>
+                  <td className="px-4 py-3 text-sm">
+                    {l.whatsapp || l.phone || "-"}
+                    {l.instagram && (
+                      <div className="text-[10px] text-primary mt-0.5">IG: {l.instagram}</div>
+                    )}
                   </td>
-                  <td className="px-4 py-3">
+                  <td className="px-4 py-3 break-words min-w-[120px]">{l.clinicName || "-"}</td>
+                  <td className="px-4 py-3 text-sm">{l.location || l.city || "-"}</td>
+                  <td className="px-4 py-3 text-xs whitespace-nowrap">
+                    <span className="bg-primary/10 text-primary px-2 py-0.5 rounded-full border border-primary/20 capitalize">
+                      {services}
+                    </span>
+                  </td>
+                  <td className="px-4 py-3 text-xs leading-tight min-w-[140px]">
+                    <div className="space-y-1">
+                      <div><span className="opacity-50">Budget:</span> {l.budget || "-"}</div>
+                      <div><span className="opacity-50">Timeline:</span> {l.timeline || "-"}</div>
+                      <div><span className="opacity-50">Commit:</span> {l.commitment || "-"}</div>
+                    </div>
+                  </td>
+                  <td className="px-4 py-3 text-[11px] leading-tight min-w-[180px]">
+                    <div className="space-y-1">
+                      {l.runningAds && <div><span className="opacity-50">Ads:</span> {l.runningAds}</div>}
+                      {l.biggestChallenge && <div><span className="opacity-50">Challenge:</span> {l.biggestChallenge}</div>}
+                      {l.missingPiece && <div><span className="opacity-50">Missing:</span> {l.missingPiece}</div>}
+                    </div>
+                  </td>
+                  <td className="px-4 py-3 text-[11px] max-w-[150px] truncate">{l.notes || "-"}</td>
+                  <td className="px-4 py-3 text-[10px] whitespace-nowrap">
+                    {l.createdAt ? new Date(l.createdAt).toLocaleString("en-GB", { 
+                      day: '2-digit', 
+                      month: 'short', 
+                      hour: '2-digit', 
+                      minute: '2-digit',
+                      hour12: false 
+                    }) : "-"}
+                  </td>
+                  <td className="px-4 py-3 text-center">
                     <button
                       disabled={busyId === id}
                       onClick={() => confirmDelete(id, l.name)}
-                      className="px-3 py-2 rounded-full bg-destructive text-destructive-foreground hover:brightness-110 transition disabled:opacity-60"
+                      className="px-4 py-2 rounded-xl bg-destructive/10 text-destructive border border-destructive/20 hover:bg-destructive hover:text-white transition-all disabled:opacity-50 text-xs font-bold"
                     >
-                      {busyId === id ? "Deleting..." : "Delete"}
+                      {busyId === id ? "..." : "Delete"}
                     </button>
                   </td>
                 </tr>
