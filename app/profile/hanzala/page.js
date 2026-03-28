@@ -41,14 +41,16 @@ const Section = ({ children, title, icon: Icon }) => (
 export default function HanzalaProfile() {
   return (
     <div className="min-h-screen bg-background relative selection:bg-primary/20 overflow-x-hidden">
-      {/* Background Decor */}
+      
+      {/* Background */}
       <div className="fixed inset-0 pointer-events-none">
         <div className="absolute top-[-10%] right-[-10%] w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px]" />
         <div className="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-primary/5 rounded-full blur-[150px]" />
       </div>
 
       <div className="max-w-4xl mx-auto px-6 py-12 lg:py-20 relative z-10">
-        {/* Back Navigation */}
+        
+        {/* Back */}
         <Link 
           href="/" 
           className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-12 group"
@@ -57,9 +59,10 @@ export default function HanzalaProfile() {
           <span className="font-medium">Back to Home</span>
         </Link>
 
-        {/* Hero Section */}
+        {/* HERO */}
         <header className="mb-20">
           <div className="flex flex-col md:flex-row items-center gap-10">
+            
             <motion.div 
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -75,6 +78,7 @@ export default function HanzalaProfile() {
             </motion.div>
 
             <div className="text-center md:text-left space-y-4">
+
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -82,8 +86,9 @@ export default function HanzalaProfile() {
                 className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-wider"
               >
                 <Sparkles className="w-3 h-3" />
-                Specialist Developer
+                Full Stack Developer
               </motion.div>
+
               <motion.h1 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -93,54 +98,63 @@ export default function HanzalaProfile() {
                 Muhammad <br className="hidden md:block" />
                 <span className="text-primary">Hanzala</span> Khaliq
               </motion.h1>
+
+              <p className="text-primary font-semibold">
+                MERN Stack | Next.js Developer
+              </p>
+
               <motion.p 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.4 }}
                 className="text-lg text-muted-foreground max-w-lg"
               >
-                Full-Stack Developer Specializing in MERN & Next.js Architecture.
+                I build modern, scalable web applications using MERN Stack & Next.js — focused on performance, clean UI, and real-world solutions.
               </motion.p>
               
+              {/* SOCIAL */}
               <motion.div 
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.5 }}
                 className="flex gap-4 justify-center md:justify-start pt-2"
               >
-                <a href="#" className="p-2.5 rounded-xl bg-surface-elevated border border-border hover:border-primary/50 transition-all text-muted-foreground hover:text-primary">
-                  <Linkedin className="w-5 h-5" />
+                <a href="https://www.linkedin.com/in/muhammad-hanzala-khaliq-34159a269/" target="_blank">
+                  <Linkedin className="w-5 h-5 hover:text-primary" />
                 </a>
-                <a href="#" className="p-2.5 rounded-xl bg-surface-elevated border border-border hover:border-primary/50 transition-all text-muted-foreground hover:text-primary">
-                  <Github className="w-5 h-5" />
+                <a href="https://github.com/your-username" target="_blank">
+                  <Github className="w-5 h-5 hover:text-primary" />
                 </a>
               </motion.div>
             </div>
           </div>
         </header>
 
-        {/* About Section */}
+        {/* ABOUT */}
         <Section title="About" icon={Sparkles}>
-          <div className="grid md:grid-cols-1 gap-8 text-lg text-muted-foreground leading-relaxed">
+          <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
             <p>
-              Muhammad Hanzala Khaliq is a passionate Full-Stack Developer with professional experience building modern web applications using the MERN stack — MongoDB, Express.js, React.js, Next.js, and Node.js.
+              I'm Muhammad Hanzala Khaliq, a Full Stack MERN Developer passionate about building real-world web applications that are fast, scalable, and user-focused.
             </p>
             <p>
-              He actively shares development projects, insights, and code examples, demonstrating a commitment to building performant and secure systems that solve real business challenges.
+              I specialize in React.js, Next.js, Node.js, and MongoDB — creating complete solutions from frontend UI to backend APIs.
+            </p>
+            <p>
+              My goal is to build products that solve real business problems with clean code and modern technologies.
             </p>
           </div>
         </Section>
 
-        {/* Skills Grid */}
+        {/* SKILLS */}
         <Section title="Key Expertise" icon={Code2}>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {[
-              { name: "MERN Stack", icon: Database, desc: "Full-Stack Architecture" },
-              { name: "Next.js", icon: Sparkles, desc: "Server-Side Rendering" },
-              { name: "Auth Systems", icon: Lock, desc: "JWT & Secure Login" },
-              { name: "Modern UI/UX", icon: Layout, desc: "Tailwind CSS Experts" },
-              { name: "Backend Services", icon: Settings, desc: "Node.js & API Mastery" },
-              { name: "Mobile Apps", icon: Smartphone, desc: "React Native Integration" }
+              { name: "MERN Stack", icon: Database, desc: "MongoDB, Express, React, Node" },
+              { name: "Next.js", icon: Sparkles, desc: "SSR & Performance" },
+              { name: "Authentication", icon: Lock, desc: "JWT & Security" },
+              { name: "Frontend UI", icon: Layout, desc: "Tailwind CSS" },
+              { name: "Backend APIs", icon: Settings, desc: "REST APIs" },
+              { name: "Deployment", icon: Smartphone, desc: "Vercel & Hosting" }
             ].map((skill, index) => (
               <motion.div 
                 key={skill.name}
@@ -148,60 +162,64 @@ export default function HanzalaProfile() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="p-5 rounded-2xl bg-surface-elevated border border-border hover:border-primary/30 transition-all group"
+                className="p-5 rounded-2xl bg-surface-elevated border border-border hover:border-primary/30 transition-all"
               >
-                <skill.icon className="w-6 h-6 text-primary mb-3 group-hover:scale-110 transition-transform" />
-                <h3 className="font-bold text-white mb-1">{skill.name}</h3>
+                <skill.icon className="w-6 h-6 text-primary mb-3" />
+                <h3 className="font-bold text-white">{skill.name}</h3>
                 <p className="text-xs text-muted-foreground">{skill.desc}</p>
               </motion.div>
             ))}
           </div>
         </Section>
 
-        {/* Projects Section */}
-        <Section title="Notable Projects" icon={BarChart3}>
+        {/* PROJECTS */}
+        <Section title="Projects" icon={BarChart3}>
           <div className="space-y-6">
             {[
               {
-                title: "Full-Stack Financial Dashboard",
-                desc: "Real-time analytics, authentication, reporting, and export features built for high-performance financial tracking.",
-                tags: ["Next.js", "MongoDB", "Auth.js", "Recharts"]
+                title: "Portfolio Website",
+                desc: "Modern animated portfolio built with Next.js and Framer Motion.",
+                tags: ["Next.js", "Framer Motion", "Tailwind"]
               },
               {
-                title: "React Native App with AI Chat",
-                desc: "A cross-platform mobile application featuring real-time chat and Appwrite integration for seamless backend services.",
-                tags: ["React Native", "Appwrite", "Real-time", "Mobile"]
+                title: "MERN Stack App",
+                desc: "Full-stack application with authentication and REST APIs.",
+                tags: ["MongoDB", "Express", "React", "Node"]
+              },
+              {
+                title: "Authentication System",
+                desc: "JWT-based login system with access & refresh tokens.",
+                tags: ["JWT", "Security"]
               }
-            ].map((project, index) => (
-              <motion.div 
+            ].map((project) => (
+              <div 
                 key={project.title}
-                whileHover={{ y: -4 }}
-                className="p-8 rounded-3xl bg-surface-elevated border border-border hover:border-primary/20 transition-all relative overflow-hidden group"
+                className="p-6 rounded-2xl bg-surface-elevated border border-border hover:border-primary/20"
               >
-                <div className="absolute top-0 right-0 p-6 opacity-0 group-hover:opacity-100 transition-opacity">
-                  <ExternalLink className="w-5 h-5 text-primary" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-3">{project.title}</h3>
-                <p className="text-muted-foreground mb-6 max-w-xl">{project.desc}</p>
+                <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
+                <p className="text-muted-foreground mb-4">{project.desc}</p>
                 <div className="flex flex-wrap gap-2">
                   {project.tags.map(tag => (
-                    <span key={tag} className="px-3 py-1 rounded-full bg-surface-subtle border border-border text-[10px] font-bold text-primary uppercase tracking-widest">
+                    <span key={tag} className="text-xs text-primary">
                       {tag}
                     </span>
                   ))}
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </Section>
 
-        {/* Final CTA */}
+        {/* CTA */}
         <footer className="pt-12 text-center border-t border-border/50">
-          <p className="text-muted-foreground mb-8">Interested in working on a project together?</p>
-          <Link href="/book-strategy-call">
-            <CTAButton>Let's Collaborate</CTAButton>
+          <p className="text-muted-foreground mb-6">
+            Have a project in mind? Let’s build something amazing together.
+          </p>
+          <Link href="/contact">
+            <CTAButton>Work With Me</CTAButton>
           </Link>
         </footer>
+
       </div>
     </div>
   );

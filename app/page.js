@@ -559,18 +559,28 @@ const Footer = () => {
           variants={itemVariants}
           className="text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase text-primary mb-6"
         >
-          Next Wave Agency
+         Asthetic Growth System
         </motion.p>
 
         {/* Email */}
-        <motion.div variants={itemVariants} className="mb-12">
+        <motion.div variants={itemVariants} className="mb-12 flex flex-col gap-2">
           <motion.a
-            href="mailto:hello@hanzalamarketing.com"
+            href="mailto:mr.razasandhu@gmail.com
+"
             whileHover={{ y: -4 }}
             transition={{ type: "spring", stiffness: 300, damping: 18 }}
-            className="text-2xl sm:text-4xl lg:text-[2.25rem] font-extrabold text-foreground hover:text-primary transition-colors duration-300 inline-block leading-tight"
+            className="text-2xl sm:text-4xl lg:text-[2rem] font-extrabold text-foreground hover:text-primary transition-colors duration-300 inline-block leading-tight"
           >
-           nextwaveagency@gmail.com
+          mr.razasandhu@gmail.com
+          </motion.a>
+           <motion.a
+            href="mailto:hanzallahkhaliq@gmail.com
+"
+            whileHover={{ y: -4 }}
+            transition={{ type: "spring", stiffness: 300, damping: 18 }}
+            className="text-2xl sm:text-4xl lg:text-[2rem] font-extrabold text-foreground hover:text-primary transition-colors duration-300 inline-block leading-tight"
+          >
+         hanzallahkhaliq@gmail.com
           </motion.a>
         </motion.div>
 
@@ -601,7 +611,7 @@ const Footer = () => {
           className="pt-8 border-t border-muted/10"
         >
           <p className="text-xs text-muted-foreground/40 tracking-wide">
-            © 2026 Next Wave Agency. All rights reserved.
+            © 2026 Asthetic Growth System. All rights reserved.
           </p>
         </motion.div>
       </motion.div>

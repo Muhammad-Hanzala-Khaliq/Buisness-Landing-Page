@@ -107,7 +107,8 @@ export default function BookStrategyCall() {
       const services = prev.selectedServices.includes(id)
         ? prev.selectedServices.filter(s => s !== id)
         : [...prev.selectedServices, id];
-      return { ...prev, selectedServices: services };
+      // Reset budget (selected pricing) when services change
+      return { ...prev, selectedServices: services, budget: "" };
     });
   };
 
@@ -305,9 +306,19 @@ export default function BookStrategyCall() {
               </div>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                 {getActiveCombo().pricing.map((p, i) => (
-                  <div key={i} className="bg-surface-elevated p-3 rounded-2xl border border-border text-center">
-                    <p className="text-sm font-bold text-foreground">{p}</p>
-                  </div>
+                  <button
+                    key={i}
+                    onClick={() => updateFormData("budget", p)}
+                    className={`p-3 rounded-2xl border transition-all text-center ${
+                      formData.budget === p 
+                        ? "bg-primary/20 border-primary shadow-[0_0_15px_rgba(16,185,129,0.1)]" 
+                        : "bg-surface-elevated border-border hover:border-primary/30"
+                    }`}
+                  >
+                    <p className={`text-sm font-bold ${formData.budget === p ? "text-primary" : "text-foreground"}`}>
+                      {p}
+                    </p>
+                  </button>
                 ))}
               </div>
             </div>
@@ -322,9 +333,19 @@ export default function BookStrategyCall() {
                     </h4>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                       {s.pricing.map((p, i) => (
-                        <div key={i} className="bg-surface-elevated p-3 rounded-2xl border border-border text-center">
-                          <p className="text-xs font-medium text-foreground">{p}</p>
-                        </div>
+                        <button
+                          key={i}
+                          onClick={() => updateFormData("budget", p)}
+                          className={`p-3 rounded-2xl border transition-all text-center ${
+                            formData.budget === p 
+                              ? "bg-primary/20 border-primary shadow-[0_0_15px_rgba(16,185,129,0.1)]" 
+                              : "bg-surface-elevated border-border hover:border-primary/30"
+                          }`}
+                        >
+                          <p className={`text-xs font-medium ${formData.budget === p ? "text-primary" : "text-foreground"}`}>
+                            {p}
+                          </p>
+                        </button>
                       ))}
                     </div>
                   </div>
@@ -338,7 +359,7 @@ export default function BookStrategyCall() {
       <div className="flex pt-6">
         <CTAButton 
           onClick={nextStep} 
-          disabled={!formData.clinicName || formData.selectedServices.length === 0}
+          disabled={!formData.clinicName || formData.selectedServices.length === 0 || !formData.budget}
           className="w-full md:w-auto ml-auto"
         >
           Next Step <ChevronRight className="w-5 h-5 inline-block ml-1" />
@@ -460,26 +481,6 @@ export default function BookStrategyCall() {
       </div>
 
       <div className="space-y-8">
-        {/* Budget */}
-        <div className="space-y-4">
-          <label className="text-base font-bold text-foreground">Your monthly marketing budget?</label>
-          <div className="flex flex-wrap gap-3">
-            {["$300–$500", "$500–$1000", "$1000+"].map(opt => (
-              <button
-                key={opt}
-                onClick={() => updateFormData("budget", opt)}
-                className={`px-6 py-3 rounded-full border-2 font-bold transition-all ${
-                  formData.budget === opt 
-                    ? "bg-primary text-primary-foreground border-primary" 
-                    : "bg-surface-elevated border-border text-muted-foreground hover:border-primary/30"
-                }`}
-              >
-                {opt}
-              </button>
-            ))}
-          </div>
-        </div>
-
         {/* Timeline */}
         <div className="space-y-4">
           <label className="text-base font-bold text-foreground">When do you want to start?</label>
@@ -555,7 +556,7 @@ export default function BookStrategyCall() {
         </button>
         <CTAButton 
           onClick={handleSubmit} 
-          disabled={!formData.budget || !formData.name || !formData.email || isSubmitting}
+          disabled={!formData.name || !formData.email || isSubmitting}
           className="w-full md:w-auto"
         >
           {isSubmitting ? (
