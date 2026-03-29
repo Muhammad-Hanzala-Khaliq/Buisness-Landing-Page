@@ -195,7 +195,7 @@ export default function TestimonialsPage() {
                 <div className="grid grid-cols-2 gap-4">
                    <div className="p-6 rounded-2xl bg-surface-elevated border border-border">
                       <Calendar className="w-6 h-6 text-indigo-400 mb-3" />
-                      <div className="text-2xl font-bold text-white">45+</div>
+                      <div className="text-2xl font-bold text-white">10+</div>
                       <div className="text-[10px] text-muted-foreground uppercase font-bold tracking-widest">New Leads/Week</div>
                    </div>
                    <div className="p-6 rounded-2xl bg-surface-elevated border border-border">
@@ -208,7 +208,6 @@ export default function TestimonialsPage() {
                   quote="Raza's ad strategy was a game changer for us. We're now consistently getting patients who are ready to pay for premium treatments, not just price shoppers."
                   author="Marcus Thorne"
                   role="Director, Elite Skin & Laser"
-                  results="6.4x Ad Spend Return"
                   delay={0.4}
                 />
              </div>

@@ -22,6 +22,7 @@ import {
   Instagram,
   Facebook,
   Twitter,
+  Mail,
 } from "lucide-react";
 import CTAButton from "../components/CTAButton";
 import Section, { fadeUpItem } from "../components/Section";
@@ -430,7 +431,8 @@ const Footer = () => {
     visible: { transition: { staggerChildren: 0.12 } },
   };
 
-  const itemVariants = {
+ 
+ const itemVariants = {
     hidden: { opacity: 0, y: 24 },
     visible: {
       opacity: 1,
@@ -439,12 +441,6 @@ const Footer = () => {
     },
   };
 
-  const socialLinks = [
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
-    { icon: Instagram, href: "#", label: "Instagram" },
-    { icon: Facebook, href: "#", label: "Facebook" },
-    { icon: Twitter, href: "#", label: "X" },
-  ];
 
   const navLinks = ["Home", "Services", "Portfolio", "Contact"];
 
@@ -562,26 +558,40 @@ const Footer = () => {
          Asthetic Growth Partner
         </motion.p>
 
-        {/* Email */}
-        <motion.div variants={itemVariants} className="mb-12 flex flex-col gap-2">
-          <motion.a
-            href="mailto:mr.razasandhu@gmail.com
-"
-            whileHover={{ y: -4 }}
-            transition={{ type: "spring", stiffness: 300, damping: 18 }}
-            className="text-2xl sm:text-2xl font-extrabold text-foreground hover:text-primary transition-colors duration-300 inline-block leading-tight"
-          >
-          mr.razasandhu@gmail.com
-          </motion.a>
-           <motion.a
-            href="mailto:hanzallahkhaliq@gmail.com
-"
-            whileHover={{ y: -4 }}
-            transition={{ type: "spring", stiffness: 300, damping: 18 }}
-            className="text-2xl sm:text-2xl font-extrabold text-foreground hover:text-primary transition-colors duration-300 inline-block leading-tight"
-          >
-         hanzallahkhaliq@gmail.com
-          </motion.a>
+        {/* Contact Section */}
+        <motion.div variants={itemVariants} className="mb-16">
+          <h3 className="text-primary font-bold tracking-[0.3em] uppercase text-[10px] mb-8 opacity-70">
+            Get in Touch
+          </h3>
+          <div className="flex flex-col md:flex-row items-center justify-center gap-6 lg:gap-12">
+            {[
+              { email: "mr.razasandhu@gmail.com", label: "Performance Marketing Specialist" },
+              { email: "hanzallahkhaliq@gmail.com", label: "Full-Stack Developer" },
+            ].map((contact, i) => (
+              <motion.a
+                key={contact.email}
+                href={`mailto:${contact.email}`}
+                whileHover={{ y: -8, scale: 1.02 }}
+                className="group relative px-8 py-6 rounded-3xl bg-surface-elevated/40 backdrop-blur-xl border border-white/5 hover:border-primary/30 transition-all duration-500 flex flex-col items-center gap-3 overflow-hidden"
+              >
+                {/* Background Glow */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                <div className="relative z-10 w-10 h-10 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                  <Mail className="w-5 h-5 text-primary" />
+                </div>
+                
+                <div className="relative z-10 text-center">
+                  <p className="text-[10px] uppercase tracking-widest text-muted-foreground/60 font-semibold mb-1 group-hover:text-primary/70 transition-colors">
+                    {contact.label}
+                  </p>
+                  <span className="text-lg sm:text-xl font-bold text-foreground group-hover:text-primary transition-colors tracking-tight">
+                    {contact.email}
+                  </span>
+                </div>
+              </motion.a>
+            ))}
+          </div>
         </motion.div>
 
     

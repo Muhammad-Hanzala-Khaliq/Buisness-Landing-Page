@@ -21,9 +21,24 @@ const ThankYouContent = () => {
 
   const getDynamicMessage = () => {
     if (isFullCombo) return "We’ll design a complete growth system to scale your clinic consistently.";
-    if (hasAds) return "We’ll show you how to generate consistent, high-quality leads using Meta Ads.";
-    if (hasWebsite) return "We’ll show how to build a high-converting clinic website.";
-    if (hasFunnel) return "We’ll map out a booking funnel to increase your consultations.";
+
+    const parts = [];
+    if (hasAds) parts.push("Advertising (Meta Ads)");
+    if (hasWebsite) parts.push("High-Converting Website");
+    if (hasFunnel) parts.push("Booking Funnel");
+
+    if (parts.length === 0) return "We’ve received your details and we’re excited to help you grow.";
+
+    if (parts.length === 1) {
+      if (hasAds) return "We’ll show you how to generate consistent, high-quality leads using Advertising (Meta Ads).";
+      if (hasWebsite) return "We’ll show how to build a high-converting clinic website.";
+      if (hasFunnel) return "We’ll map out a booking funnel to increase your consultations.";
+    }
+
+    if (parts.length === 2) {
+      return `We'll show you how to combine ${parts[0]} and ${parts[1]} to scale your clinic's patient bookings.`;
+    }
+
     return "We’ve received your details and we’re excited to help you grow.";
   };
 
@@ -93,12 +108,7 @@ const ThankYouContent = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="https://calendly.com/your-link" target="_blank" className="flex-1">
-              <CTAButton className="w-full flex items-center justify-center gap-2">
-                <Calendar className="w-5 h-5" /> Book Strategy Call
-              </CTAButton>
-            </Link>
-            <Link href="https://wa.me/your-number" target="_blank" className="flex-1">
+            <Link href="https://wa.me/923194390885" target="_blank" className="flex-1">
               <CTAButton variant="secondary" className="w-full flex items-center justify-center gap-2">
                 <MessageCircle className="w-5 h-5 text-primary" /> Chat on WhatsApp
               </CTAButton>
