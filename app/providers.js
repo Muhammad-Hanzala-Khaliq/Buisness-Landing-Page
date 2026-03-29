@@ -9,7 +9,12 @@ const queryClient = new QueryClient();
 
 export default function Providers({ children }) {
   return (
-    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+    <ThemeProvider
+      attribute="class"
+      defaultTheme="dark"
+      enableSystem={false}
+      forcedTheme="dark"
+    >
       <QueryClientProvider client={queryClient}>
         <TooltipProvider>
           {children}

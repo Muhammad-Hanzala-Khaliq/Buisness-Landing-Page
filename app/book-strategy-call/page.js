@@ -55,25 +55,44 @@ const COMBOS = {
   "ads,website": {
     title: "Combo: Meta Ads + Landing Page",
     discount: "Save 15%",
-    pricing: ["A) $600 – $1,100/month", "B) $1,100 – $1,600/month", "C) $1,600 – $2,300/month", "D) $2,300 – $3,400/month"]
+    pricing: [
+      "A) $600 – $1,100/month",
+      "B) $1,100 – $1,600/month",
+      "C) $1,600 – $2,300/month",
+      "D) $2,300 – $3,400/month",
+    ],
   },
   "ads,funnel": {
     title: "Combo: Meta Ads + Funnel",
     discount: "Save 15%",
-    pricing: ["A) $700 – $1,300/month", "B) $1,300 – $1,800/month", "C) $1,800 – $2,550/month", "D) $2,550 – $3,900/month"]
+    pricing: [
+      "A) $700 – $1,300/month",
+      "B) $1,300 – $1,800/month",
+      "C) $1,800 – $2,550/month",
+      "D) $2,550 – $3,900/month",
+    ],
   },
   "funnel,website": {
     title: "Combo: Landing Page + Funnel",
     discount: "Save 15%",
-    pricing: ["A) $800 – $1,400", "B) $1,400 – $1,900", "C) $1,900 – $2,800", "D) $2,800 – $4,250"]
+    pricing: [
+      "A) $800 – $1,400",
+      "B) $1,400 – $1,900",
+      "C) $1,900 – $2,800",
+      "D) $2,800 – $4,250",
+    ],
   },
   "ads,funnel,website": {
     title: "Full Growth System ⭐",
     discount: "Save 25%",
-    badge: "Best Value 🔥",
     description: "Designed for clinics that want consistent bookings at scale",
-    pricing: ["A) $900 – $1,700", "B) $1,700 – $2,300", "C) $2,300 – $3,400", "D) $3,400 – $5,100"]
-  }
+    pricing: [
+      "A) $900 – $1,700",
+      "B) $1,700 – $2,300",
+      "C) $2,300 – $3,400",
+      "D) $3,400 – $5,100",
+    ],
+  },
 };
 
 export default function BookStrategyCall() {

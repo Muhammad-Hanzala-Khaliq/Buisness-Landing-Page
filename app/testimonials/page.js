@@ -19,7 +19,7 @@ import CTAButton from "../../components/CTAButton";
 
 const ease = [0.16, 1, 0.3, 1];
 
-const TestimonialCard = ({ quote, author, role, results, delay }) => (
+const TestimonialCard = ({ quote, author, role, delay }) => (
   <motion.div
     initial={{ opacity: 0, y: 30 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -35,13 +35,12 @@ const TestimonialCard = ({ quote, author, role, results, delay }) => (
       </div>
       <p className="text-muted-foreground italic leading-relaxed">"{quote}"</p>
     </div>
-    <div className="mt-8 pt-6 border-t border-border/50 flex flex-wrap gap-4 items-center justify-between">
+    <div className="mt-8 pt-6 border-t border-border/50">
       <div>
         <h4 className="font-bold text-white text-sm">{author}</h4>
-        <p className="text-[10px] text-muted-foreground uppercase tracking-widest">{role}</p>
-      </div>
-      <div className="px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-bold">
-        {results}
+        <p className="text-[10px] text-muted-foreground uppercase tracking-widest">
+          {role}
+        </p>
       </div>
     </div>
   </motion.div>
@@ -83,14 +82,17 @@ export default function TestimonialsPage() {
 
       <div className="max-w-7xl mx-auto px-6 py-12 lg:py-20 relative z-10">
         {/* Navigation */}
-        <Link href="/" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-16 group">
+        <Link
+          href="/"
+          className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-16 group"
+        >
           <ChevronLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
           <span className="font-medium">Back to Home</span>
         </Link>
 
         {/* Header */}
         <header className="max-w-3xl mb-24">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-bold uppercase tracking-widest mb-6"
@@ -98,21 +100,23 @@ export default function TestimonialsPage() {
             <Sparkles className="w-3 h-3" />
             Social Proof & Results
           </motion.div>
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease }}
             className="text-4xl md:text-7xl font-extrabold text-white leading-[1.1] mb-8"
           >
-            Proven Results For <span className="text-primary">Premier Clinics.</span>
+            Proven Results For{" "}
+            <span className="text-primary">Premier Clinics.</span>
           </motion.h1>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1, ease }}
             className="text-xl text-muted-foreground leading-relaxed"
           >
-            We don’t just run ads or build websites. We create predictable growth systems that turn clinic visitors into confirmed patients.
+            We don’t just run ads or build websites. We create predictable
+            growth systems that turn clinic visitors into confirmed patients.
           </motion.p>
         </header>
 
@@ -120,48 +124,46 @@ export default function TestimonialsPage() {
         <section className="mb-32 space-y-16">
           <div className="flex flex-col lg:flex-row items-end justify-between gap-8 pb-8 border-b border-border/50">
             <div className="space-y-4">
-              <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight">Engineered Digital Foundations</h2>
-              <p className="text-muted-foreground text-lg max-w-2xl">High-performance landing pages and booking funnels designed for maximum conversion.</p>
+              <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight">
+                Engineered Digital Foundations
+              </h2>
+              <p className="text-muted-foreground text-lg max-w-2xl">
+                High-performance landing pages and booking funnels designed for
+                maximum conversion.
+              </p>
             </div>
             <Link href="/profile/hanzala" className="group shrink-0">
               <div className="flex items-center gap-4 p-4 rounded-2xl bg-surface-elevated border border-border group-hover:border-primary transition-all">
-                <img src="/Hanzala.png" className="w-12 h-12 rounded-full object-contain bg-background" />
+                <img
+                  src="/Hanzala.png"
+                  className="w-12 h-12 rounded-full object-contain bg-background"
+                />
                 <div className="text-left">
-                  <div className="text-xs uppercase font-bold text-muted-foreground tracking-widest">Web Specialist</div>
-                  <div className="font-bold text-white group-hover:text-primary transition-colors">Hanzala Khaliq</div>
+                  <div className="text-xs uppercase font-bold text-muted-foreground tracking-widest">
+                    Web Specialist
+                  </div>
+                  <div className="font-bold text-white group-hover:text-primary transition-colors">
+                    Hanzala Khaliq
+                  </div>
                 </div>
                 <ArrowRight className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors ml-4" />
               </div>
             </Link>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-             <div className="space-y-6">
-                <div className="grid grid-cols-2 gap-4">
-                   <div className="p-6 rounded-2xl bg-surface-elevated border border-border">
-                      <Zap className="w-6 h-6 text-primary mb-3" />
-                      <div className="text-2xl font-bold text-white">+40%</div>
-                      <div className="text-[10px] text-muted-foreground uppercase font-bold tracking-widest">Conversion Lift</div>
-                   </div>
-                   <div className="p-6 rounded-2xl bg-surface-elevated border border-border">
-                      <MousePointer2 className="w-6 h-6 text-primary mb-3" />
-                      <div className="text-2xl font-bold text-white">1.2s</div>
-                      <div className="text-[10px] text-muted-foreground uppercase font-bold tracking-widest">Load Speed</div>
-                   </div>
-                </div>
-                <TestimonialCard 
-                  quote="The landing page Hanzala built changed everything. We went from chasing enquiries to having booked consultations in our calendar every morning."
-                  author="Dr. Sarah Mitchell"
-                  role="Owner, Bloom Clinic"
-                  results="3.2x Booking Rate"
-                  delay={0.2}
-                />
-             </div>
-             <ScreenshotMockup 
-                title="Aura Aesthetics" 
-                desc="High-converting funnel with integrated booking and seamless patient onboarding." 
-                icon={Globe}
-             />
+          <div className="grid lg:grid-cols-2 gap-8">
+            <TestimonialCard
+              quote="Working with Hanzala was a breath of fresh air. Our new website not only looks professional but actually converts visitors into patients. The booking system is seamless and our staff loves how easy it is to manage."
+              author="Dr. Emily Chen"
+              role="Founder, Radiant Aesthetics"
+              delay={0.2}
+            />
+            <TestimonialCard
+              quote="Hanzala transformed our online presence completely. The new site is fast, beautiful, and most importantly, it's bringing in qualified leads every day. Our conversion rate has improved significantly."
+              author="Dr. Michael Ross"
+              role="CEO, Vitality Wellness Clinic"
+              delay={0.4}
+            />
           </div>
         </section>
 
@@ -169,64 +171,64 @@ export default function TestimonialsPage() {
         <section className="mb-32 space-y-16">
           <div className="flex flex-col lg:flex-row items-end justify-between gap-8 pb-8 border-b border-border/50">
             <div className="space-y-4">
-              <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight">High-Impact Growth Strategy</h2>
-              <p className="text-muted-foreground text-lg max-w-2xl">Precision-targeted Meta Ads and performance marketing that delivers qualified patients, not just clicks.</p>
+              <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight">
+                High-Impact Growth Strategy
+              </h2>
+              <p className="text-muted-foreground text-lg max-w-2xl">
+                Precision-targeted Meta Ads and performance marketing that
+                delivers qualified patients, not just clicks.
+              </p>
             </div>
             <Link href="/profile/raza" className="group shrink-0">
               <div className="flex items-center gap-4 p-4 rounded-2xl bg-surface-elevated border border-border group-hover:border-indigo-400 transition-all">
-                <img src="/Ali.png" className="w-12 h-12 rounded-full object-cover bg-background" />
+                <img
+                  src="/Ali.png"
+                  className="w-12 h-12 rounded-full object-cover bg-background"
+                />
                 <div className="text-left">
-                  <div className="text-xs uppercase font-bold text-muted-foreground tracking-widest">Ads Specialist</div>
-                  <div className="font-bold text-white group-hover:text-indigo-400 transition-colors">Raza Sandhu</div>
+                  <div className="text-xs uppercase font-bold text-muted-foreground tracking-widest">
+                    Ads Specialist
+                  </div>
+                  <div className="font-bold text-white group-hover:text-indigo-400 transition-colors">
+                    Raza Sandhu
+                  </div>
                 </div>
                 <ArrowRight className="w-5 h-5 text-muted-foreground group-hover:text-indigo-400 transition-colors ml-4" />
               </div>
             </Link>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-             <ScreenshotMockup 
-                title="Growth Performance" 
-                desc="Real-time ad results showing lead volume and high ROAS across multiple treatment categories." 
-                icon={TrendingUp}
-                color="indigo-500"
-             />
-             <div className="space-y-6">
-                <div className="grid grid-cols-2 gap-4">
-                   <div className="p-6 rounded-2xl bg-surface-elevated border border-border">
-                      <Calendar className="w-6 h-6 text-indigo-400 mb-3" />
-                      <div className="text-2xl font-bold text-white">10+</div>
-                      <div className="text-[10px] text-muted-foreground uppercase font-bold tracking-widest">New Leads/Week</div>
-                   </div>
-                   <div className="p-6 rounded-2xl bg-surface-elevated border border-border">
-                      <TrendingUp className="w-6 h-6 text-indigo-400 mb-3" />
-                      <div className="text-2xl font-bold text-white">$12.4k</div>
-                      <div className="text-[10px] text-muted-foreground uppercase font-bold tracking-widest">Added Revenue/Mo</div>
-                   </div>
-                </div>
-                <TestimonialCard 
-                  quote="Raza's ad strategy was a game changer for us. We're now consistently getting patients who are ready to pay for premium treatments, not just price shoppers."
-                  author="Marcus Thorne"
-                  role="Director, Elite Skin & Laser"
-                  delay={0.4}
-                />
-             </div>
+          <div className="grid lg:grid-cols-2 gap-8">
+            <TestimonialCard
+              quote="Raza's ad strategy was a game changer for us. We're now consistently getting patients who are ready to pay for premium treatments, not just price shoppers."
+              author="Marcus Thorne"
+              role="Director, Elite Skin & Laser"
+              delay={0.2}
+            />
+            <TestimonialCard
+              quote="Raza helped us target the right audience on Facebook. Since launching the ads, we've seen a steady stream of qualified leads interested in our cosmetic procedures. The ROI has been impressive."
+              author="James Patel"
+              role="Owner, Precision MedSpa"
+              delay={0.4}
+            />
           </div>
         </section>
 
         {/* Final CTA */}
         <section className="pt-24 text-center border-t border-border/30">
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             className="text-3xl md:text-5xl font-bold text-white mb-8"
           >
-            Ready for Your <span className="text-primary tracking-tight">Growth System?</span>
+            Ready for Your{" "}
+            <span className="text-primary tracking-tight">Growth System?</span>
           </motion.h2>
           <div className="flex flex-col sm:flex-row justify-center gap-6">
             <Link href="/book-strategy-call">
               <CTAButton className="px-10 py-5">
-                Book My Strategy Call <ArrowRight className="w-5 h-5 ml-2 inline-block" />
+                Book My Strategy Call{" "}
+                <ArrowRight className="w-5 h-5 ml-2 inline-block" />
               </CTAButton>
             </Link>
           </div>
