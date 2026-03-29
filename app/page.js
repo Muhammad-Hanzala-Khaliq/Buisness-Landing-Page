@@ -559,7 +559,7 @@ const Footer = () => {
           variants={itemVariants}
           className="text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase text-primary mb-6"
         >
-         Asthetic Growth System
+         Asthetic Growth Partner
         </motion.p>
 
         {/* Email */}
@@ -569,7 +569,7 @@ const Footer = () => {
 "
             whileHover={{ y: -4 }}
             transition={{ type: "spring", stiffness: 300, damping: 18 }}
-            className="text-2xl sm:text-4xl lg:text-[2rem] font-extrabold text-foreground hover:text-primary transition-colors duration-300 inline-block leading-tight"
+            className="text-2xl sm:text-2xl font-extrabold text-foreground hover:text-primary transition-colors duration-300 inline-block leading-tight"
           >
           mr.razasandhu@gmail.com
           </motion.a>
@@ -578,7 +578,7 @@ const Footer = () => {
 "
             whileHover={{ y: -4 }}
             transition={{ type: "spring", stiffness: 300, damping: 18 }}
-            className="text-2xl sm:text-4xl lg:text-[2rem] font-extrabold text-foreground hover:text-primary transition-colors duration-300 inline-block leading-tight"
+            className="text-2xl sm:text-2xl font-extrabold text-foreground hover:text-primary transition-colors duration-300 inline-block leading-tight"
           >
          hanzallahkhaliq@gmail.com
           </motion.a>
@@ -586,24 +586,7 @@ const Footer = () => {
 
     
 
-        {/* Social Icons */}
-        <motion.div
-          variants={itemVariants}
-          className="flex justify-center gap-7 mb-16"
-        >
-          {socialLinks.map((social) => (
-            <motion.a
-              key={social.label}
-              href={social.href}
-              aria-label={social.label}
-              whileHover={{ y: -5, scale: 1.15 }}
-              transition={{ type: "spring", stiffness: 420, damping: 12 }}
-              className="w-10 h-10 rounded-xl bg-muted/20 border border-muted/30 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/30 hover:bg-primary/10 transition-colors duration-300"
-            >
-              <social.icon className="w-4 h-4" />
-            </motion.a>
-          ))}
-        </motion.div>
+     
 
         {/* Divider + Copyright */}
         <motion.div
@@ -611,7 +594,7 @@ const Footer = () => {
           className="pt-8 border-t border-muted/10"
         >
           <p className="text-xs text-muted-foreground/40 tracking-wide">
-            © 2026 Asthetic Growth System. All rights reserved.
+            © 2026 Asthetic Growth Partner. All rights reserved.
           </p>
         </motion.div>
       </motion.div>

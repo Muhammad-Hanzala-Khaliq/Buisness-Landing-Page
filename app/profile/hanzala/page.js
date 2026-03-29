@@ -122,7 +122,7 @@ export default function HanzalaProfile() {
                 <a href="https://www.linkedin.com/in/muhammad-hanzala-khaliq-34159a269/" target="_blank">
                   <Linkedin className="w-5 h-5 hover:text-primary" />
                 </a>
-                <a href="https://github.com/your-username" target="_blank">
+                <a href="https://github.com/Muhammad-Hanzala-Khaliq" target="_blank">
                   <Github className="w-5 h-5 hover:text-primary" />
                 </a>
               </motion.div>

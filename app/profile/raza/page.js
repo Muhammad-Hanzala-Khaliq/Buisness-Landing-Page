@@ -12,12 +12,30 @@ import {
   Globe,
   BarChart,
   ArrowRight,
-  Settings
+  Settings,
+    Linkedin,
+  Instagram,
+  Facebook,
+  Twitter,
 } from "lucide-react";
 import Link from "next/link";
 import CTAButton from "../../../components/CTAButton";
 
 const ease = [0.16, 1, 0.3, 1];
+
+ const itemVariants = {
+    hidden: { opacity: 0, y: 24 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.75, ease: [0.16, 1, 0.3, 1] },
+    },
+  };
+
+  const socialLinks = [
+    { icon: Linkedin, href: "https://www.linkedin.com/in/mr-razasandhu/", label: "LinkedIn" },
+    { icon: Instagram, href: "https://www.instagram.com/mr.razasandhu/", label: "Instagram" },
+  ];
 
 const Section = ({ children, title, icon: Icon }) => (
   <motion.section 
@@ -104,16 +122,25 @@ export default function RazaProfile() {
                 Performance Marketing Specialist | Meta Ads | Lead Generation
               </motion.p>
 
-              <motion.div 
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.5 }}
-                className="flex gap-4 justify-center md:justify-start pt-2"
-              >
-                <a href="#" className="flex items-center gap-2 px-4 py-2 rounded-xl bg-surface-elevated border border-border hover:border-indigo-500/30 transition-all text-sm font-medium text-white hover:bg-indigo-500/5">
-                  <Globe className="w-4 h-4 text-indigo-400" /> Professional Portfolio
-                </a>
-              </motion.div>
+              {/* Social Icons */}
+        <motion.div
+          variants={itemVariants}
+          className="flex justify-center gap-7 mb-16"
+        >
+          {socialLinks.map((social) => (
+            <motion.a
+              key={social.label}
+              target="_blank"
+              href={social.href}
+              aria-label={social.label}
+              whileHover={{ y: -5, scale: 1.15 }}
+              transition={{ type: "spring", stiffness: 420, damping: 12 }}
+              className="w-10 h-10 rounded-xl bg-muted/20 border border-muted/30 flex items-center justify-center text-muted-foreground hover:text-indigo-400 hover:border-primary/30 hover:bg-primary/10 transition-colors duration-300"
+            >
+              <social.icon className="w-4 h-4" />
+            </motion.a>
+          ))}
+        </motion.div>
 
             </div>
           </div>
